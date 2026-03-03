@@ -6,14 +6,14 @@ app.use(express.json());
 
 const userBank = [
     {
-        id: 0,
+        id: 1,
         name: "Gerardo Bernal",
         age: 19,
         bankName: "Banco Occidente",
         count: 500000,
     },
     {
-        id: 1,
+        id: 2,
         name: "Camilo Contreras",
         age: 40,
         bankName: "Banco Caja Social",
@@ -52,14 +52,14 @@ app.put('/bancoUsuario/:id',(request, response)=>{
         if (!name || age === undefined || !bankName || count === undefined) {
             return response.status(404).json({message: 'Falta campo obligatorio'});
         }
-        const userBank = {
+        const updateUser = {
           id,
           name,
           age,
           bankName,
           count,
         };
-        updateUser = userBank[userBankIndex]
+        userBank[userBankIndex] = updateUser
         response.status(200).json(updateUser)
     } else {
         response.status(404).json({message : "Usuario Bancario no encontrado"})
