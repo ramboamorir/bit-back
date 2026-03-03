@@ -53,10 +53,11 @@ app.put('/bancoUsuario/:id',(request, response)=>{
             return response.status(404).json({message: 'Falta campo obligatorio'});
         }
         const userBank = {
-            name,
-            age,
-            bankName,
-            count,
+          id,
+          name,
+          age,
+          bankName,
+          count,
         };
         updateUser = userBank[userBankIndex]
         response.status(200).json(updateUser)
